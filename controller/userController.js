@@ -72,6 +72,29 @@ exports.getUserProfile= asynchandler(async(req,res)=>{
    const userID= req.user
    
    const fetchedUser = await User.findById(userID._id).select("-password -__v")
-   res.json(fetchedUser)
+   res.status(201).json(fetchedUser) 
    
 })
+exports.changePasword = asynchandler(
+    async (req,res)=>{
+        const {currentPassowrd,newPassword,conformNewPassword}=req.body
+        if(!currentPassowrd||!newPassword||!conformNewPassword){
+            res.status(400).send("all feild are required to fill")
+        }
+
+        if(newPassword!=conformNewPassword){
+            res.status(400).send("the passwords must be equal")
+        }
+        if(currentPassowrd==newPassword){
+            res.status(400).send("same password-")
+        }
+
+        const userID = req.User
+         const hashedPassword = await bcrypt.hash(newPassword, 10)
+        const updatedUser = await User.findByIdAndUpdate(userID,{ password: hashedPassword },{ new: true })
+        if(!updatedUser){
+            res.status(400).send("no user found")
+        }
+        res.status(400).send("sucesfully changed password")
+    }
+)

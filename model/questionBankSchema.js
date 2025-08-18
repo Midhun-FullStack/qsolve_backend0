@@ -30,5 +30,5 @@ const questionBankSchema = mongoose.Schema({
     },
 
 })
-const questionBank = mongoose.model('Semester', questionBankSchema);
+const questionBank = mongoose.model('QuestionBank', questionBankSchema);
 module.exports=questionBank
