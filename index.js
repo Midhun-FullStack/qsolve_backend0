@@ -19,9 +19,9 @@ app.use((err, req, res, next)=> {
   res.status(statusCode).json({
     success: false,
     message: err.message || 'Server Error',
-    // Optional: Include stack trace in development mode only
+    
     stack: process.env.NODE_ENV === 'production' ? null : err.stack
   });
 })
-// hello
+
 app.listen(port, () => console.log(`Server running on port ${port} 🔥`))

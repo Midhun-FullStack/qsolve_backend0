@@ -28,7 +28,15 @@ const questionBankSchema = mongoose.Schema({
         ref:"Subject",
         required:true
     },
-
+    fileUrl: { type: String,
+         required: true 
+        },
+    
+    uploadedBy:{    type:mongoose.Schema.Types.ObjectId,
+        ref:"User",
+        required:true
+    }
+    
 })
 const questionBank = mongoose.model('QuestionBank', questionBankSchema);
 module.exports=questionBank

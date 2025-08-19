@@ -1,0 +1,16 @@
+const Department = require("../model/departmentSchema")
+const asynchandler = require("express-async-handler")
+
+exports.createDepartment= asynchandler(async (req,res)=>{
+    const{deparment}=req.body
+    const createDepartment = await Department.create(deparment)
+    if(!createDepartment)res.status(400).send("error while creating department")
+    res.status(200).send("succesfully created department")
+
+
+})
+exports.getAllDepartment = asynchandler(async()=>{
+    const response = await Department.find()
+    if(!response)res.status(400).send("error while fetchind from database")
+    res.status(200).json(response)
+})
