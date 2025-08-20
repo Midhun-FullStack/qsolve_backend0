@@ -1,4 +1,4 @@
-const Department = require("../model/departmentSchema")
+const Department = require("../model/productSchema")
 const asynchandler = require("express-async-handler")
 
 exports.createDepartment= asynchandler(async (req,res)=>{

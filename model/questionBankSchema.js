@@ -8,16 +8,8 @@ const questionBankSchema = mongoose.Schema({
         type:String,
         required:true
     },
-    price:{
-        type:Number,
-        required:true,
-        min:0
-    },
-    DepartmentID:{
-        type: mongoose.Schema.Types.ObjectId, 
-    ref: 'Department',   
-    required: true 
-    },
+   
+    
     SemesterID:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Semester",

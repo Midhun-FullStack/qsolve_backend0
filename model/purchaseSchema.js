@@ -1,15 +1,16 @@
 const mongoose = require("mongoose")
+
 const purchaseSchema = new mongoose.Schema({
     userID:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"user"
     },
-    questionBankID:{
+    BundleId:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:"questionBank"
+        ref:"Bundle"
     }
     ,
     
 })
-const purchase = mongoose.model('Department', purchaseSchema);
+const purchase = mongoose.model('purchase', purchaseSchema);
 module.exports=purchase
