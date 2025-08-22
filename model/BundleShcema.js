@@ -10,6 +10,7 @@ const BundleSchema = new mongoose.Schema({
         required:true
 
 
+
     },
      price:{
             type:Number,
@@ -19,6 +20,7 @@ const BundleSchema = new mongoose.Schema({
      products:[{
         type:mongoose.Schema.Types.ObjectId,
         ref:"QuestionBank"
+         
     }]
     
 })

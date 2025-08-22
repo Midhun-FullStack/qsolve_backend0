@@ -23,3 +23,14 @@ exports.getBundleByDepartment = asynchandler(async(req,res)=>{
     const responce = await bundleSchema.find(department)
     
 }) 
+exports.getSubjectByDepartment = asynchandler(async(req,res)=>{
+     const {department}= req.body
+    const listOfProductByDepartment = await bundleSchema.findOne({department}).select("products").populate({
+        path:"products",
+        populate:"subject"
+        
+    })
+    subjects = [...new set(listOfProductByDepartment.pr)]
+    
+
+}) 
