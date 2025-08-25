@@ -13,7 +13,7 @@ exports.createBundle = asynchandler(async (req,res)=>{
 
 
 })
-exports.getBundle = asynchandler(async (req,res)=>{
+exports.getAllBundle = asynchandler(async (req,res)=>{
     const responce = await bundleSchema.find()
     res.status(200).json(responce)
 })
@@ -23,14 +23,20 @@ exports.getBundleByDepartment = asynchandler(async(req,res)=>{
     const responce = await bundleSchema.find(department)
     
 }) 
+exports.getPdfByDeparment = asyncHandler(async(req,res)=>{
+    const {department}=req.body
+    const productListByDepartment = await bundleSchema.findOne({department}).populate("products").products
+    if(!productListByDepartment)res.status(400).send("error fetching poducts")
+        res.status(200).json(productListByDepartment)
+})
 exports.getSubjectByDepartment = asynchandler(async(req,res)=>{
      const {department}= req.body
-    const listOfProductByDepartment = await bundleSchema.findOne({department}).select("products").populate({
+    const bundleSchemaToObject = await bundleSchema.findOne({department}).select("products").populate({
         path:"products",
         populate:"subject"
         
     })
-    subjects = [...new set(listOfProductByDepartment.pr)]
-    
-
+    subjects = [...new set(bundleSchemaToObject.product.map(x=>x.subject))]
+    res.status(200).send(subjects)
 }) 
+

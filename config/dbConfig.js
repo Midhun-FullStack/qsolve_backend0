@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 exports.dbCONNECT = async () =>{
     try{
-        await mongoose.connect(process.env.mongoURI)
+        await mongoose.connect(process.env.mongoURI||"mongodb+srv://midhunfullstack:Midhun@cluster0.ns0oiio.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
         console.log("database connected succesfully ")
     }
     catch(err){

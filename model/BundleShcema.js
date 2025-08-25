@@ -24,5 +24,5 @@ const BundleSchema = new mongoose.Schema({
     }]
     
 })
-const Department = mongoose.model('Bundle', BundleSchema);
-module.exports=Department
+const Bundle = mongoose.model('Bundle', BundleSchema);
+module.exports=Bundle
