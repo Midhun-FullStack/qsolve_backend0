@@ -1,7 +1,7 @@
 const express = require("express") 
 router = express.Router()
-const {createDepartment,getAllDepartment} =require("./departmentRoutes")
+const {createDepartment,getAllDepartment} =require("../../controller/deparmentController")
 
-router.post("/",createDepartment)
+
 router.get("/",getAllDepartment)
 module.exports = router

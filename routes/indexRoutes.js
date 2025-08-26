@@ -1,10 +1,12 @@
 const express = require("express") 
 const departmentRouter = require("./departmentRoutes")
-const userRouter = require("./userRoutes")
-const adminRouter = require("./adminRoutes")
+const userRouter = require("./user/userRoutes")
+
+const adminRouter = require("./admin/adminRoutes")
 
 router = express.Router()
-router.use("/department/",departmentRouter)
+router.use("/admin",adminRouter)
+router.use("/user",userRouter)
 
 
 module.exports = router

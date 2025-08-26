@@ -7,7 +7,7 @@ exports.createBundle = asynchandler(async (req,res)=>{
     // needs to set validatio
     const bundleCreated = await bundleSchema.create(department,price,products)
         
-
+ 
     bundleCreated.status(200).send("bundleCreated")
 
 
