@@ -1,12 +1,17 @@
 const express = require("express") 
-const departmentRouter = require("./departmentRoutes")
-const semesterRouter  =require("./semesterRoutes")
+const departmentRoutes = require("./departmentRoutes")
+const semesterRoutes  =require("./semesterRoutes")
 const subjectRoutes = require("./subjectRoutes")
+const bundleRoutes = require("./bundleRoutes")
+const questionBankRoutes = require("./questionBankRoutes")
 router = express.Router()
 
-router.use("/department",departmentRouter)
-router.use("/semester",semesterRouter)
-router.use("/subject",subjectRouter)
+router.use("/department",departmentRoutes)
+router.use("/semester",semesterRoutes)
+router.use("/subject",subjectRoutes)
+router.use("/bundle",bundleRoutes)
+router.use("pdf",questionBankRoutes)
+
 
 
 
