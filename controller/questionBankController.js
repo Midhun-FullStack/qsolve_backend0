@@ -1,5 +1,5 @@
 
-const questionBank = require("../model/questionBank")
+const questionBank = require("../model/questionBankSchema")
 const asynchandler = require("express-async-handler")
 
 exports.createQuestionBank=asynchandler(async (req,res)=>{

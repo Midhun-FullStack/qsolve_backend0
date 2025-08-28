@@ -4,8 +4,12 @@ const semesterRoutes  =require("./semesterRoutes")
 const subjectRoutes = require("./subjectRoutes")
 const bundleRoutes = require("./bundleRoutes")
 const questionBankRoutes = require("./questionBankRoutes")
-router = express.Router()
+const router = express.Router()
 
+//for welocme message
+router.get("/",(req,res)=>{
+    res.send("admin API is running...")
+})
 router.use("/department",departmentRoutes)
 router.use("/semester",semesterRoutes)
 router.use("/subject",subjectRoutes)

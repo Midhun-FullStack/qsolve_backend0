@@ -8,7 +8,7 @@ exports.createSemester = asynchandler(async(req,res)=>{
     res.status(200).send("semester created succesfully")
 })
 
-exports.GetAllSemester=asynchandler(async(req,res)=>{
+exports.getAllSemester=asynchandler(async(req,res)=>{
     const allSemester = await Semester.find()
     (allSemester)?res.status(200).json(allSemester):res.status(400).send("error while fetching responce")
 })

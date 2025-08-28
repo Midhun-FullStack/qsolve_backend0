@@ -1,7 +1,7 @@
 const express = require("express") 
 router = express.Router()
-const {createDepartment,getAllDepartment} =require("../../controller/deparmentController")
+const department =require("../../controller/deparmentController")
 
 
-router.get("/",getAllDepartment)
+router.get("/",department.getAllDepartment)
 module.exports = router

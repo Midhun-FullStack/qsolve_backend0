@@ -1,5 +1,5 @@
 
-const bundleSchema = require("../model/bundleSchema")
+const bundleSchema = require("../model/BundleShcema")
 const asynchandler = require("express-async-handler")
 
 exports.createBundle = asynchandler(async (req,res)=>{
@@ -23,7 +23,7 @@ exports.getBundleByDepartment = asynchandler(async(req,res)=>{
     const responce = await bundleSchema.find(department)
     
 }) 
-exports.getPdfByDeparment = asyncHandler(async(req,res)=>{
+exports.getPdfByDeparment = asynchandler(async(req,res)=>{
     const {department}=req.body
     const productListByDepartment = await bundleSchema.findOne({department}).populate("products").products
     if(!productListByDepartment)res.status(400).send("error fetching poducts")

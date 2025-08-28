@@ -1,7 +1,7 @@
 const express = require("express") 
 router = express.Router()
-const {getAllSemester} =require("../../controller/semesterController")
+const semester =require("../../controller/semesterController")
 
 
-router.get("/",getAllSemester)
+router.get("/",semester.getAllSemester)
 module.exports = router

@@ -19,10 +19,10 @@ exports.registerUser = asynchandler(async (req,res)=>{
     if(!username || !email||!password||!firstname||!lastname ||!role){
         res.statusCode(400).json("fill all the details")
     }
-    isExist= await User.findOne({email})
-    if(isExist){
-        res.status(400).json("user already exists")
-    } 
+    // isExist= await User.findOne({email})
+    // if(isExist){
+    //     res.status(400).json("user already exists")
+    // } 
     hashed =await bcrypt.hash(password,10)
     const userCreated = await User.create({
         username,

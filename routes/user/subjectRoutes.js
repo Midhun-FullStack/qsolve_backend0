@@ -1,10 +1,10 @@
 const express = require("express") 
 router = express.Router()
-const {getAllSubject} =require("../../controller/subjectController")
-const {getSubjectByDepartment}=require("../../controller/bundleController")
+const subject =require("../../controller/subjectController")
+const bundle=require("../../controller/bundleController")
 
-router.post("/",getAllSubject)
-router.get("/byDepartment",getSubjectByDepartment)
+router.post("/",subject.getAllSubject)
+router.get("/byDepartment",bundle.getSubjectByDepartment )
 
 
 module.exports = router

@@ -7,5 +7,5 @@ const subjectSchema = new mongoose.Schema({
     }
     
 })
-const Semester = mongoose.model('Subject', semesterSchema);
-module.exports=Semester
+const Subject = mongoose.model('Subject', subjectSchema);
+module.exports=Subject

@@ -1,7 +1,7 @@
 const Subject = require("../model/subjectSchema")
 const asynchandler = require("express-async-handler")
 
-exports.createDepartment= asynchandler(async (req,res)=>{
+exports.createSubject= asynchandler(async (req,res)=>{
     const{subject}=req.body
     const createdSubject = await Subject.create(subject)
     if(!createdSubject)res.status(400).send("error while creating Subject")

@@ -1,9 +1,11 @@
-const express = require("express") 
+const express = require("express")
 router = express.Router()
-const {createDepartment
-} =require("../../controller/deparmentController")
+const { createDepartment} = require("../../controller/deparmentController")
 
-router.post("/create",createDepartment)
+router.get("/", (req, res) => {
+    res.send("department API is running...")
+})
+router.post("/create", createDepartment)
 
 
 

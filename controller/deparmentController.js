@@ -1,9 +1,9 @@
-const Department = require("../model/productSchema")
+const Department = require("../model/DepartmentSchema")
 const asynchandler = require("express-async-handler")
 
 exports.createDepartment= asynchandler(async (req,res)=>{
-    const{deparment}=req.body
-    const createDepartment = await Department.create(deparment)
+    const{department}=req.body
+    const createDepartment = await Department.create({department})
     if(!createDepartment)res.status(400).send("error while creating department")
     res.status(200).send("succesfully created department")
 

@@ -1,11 +1,11 @@
 const express = require("express") 
 router = express.Router()
-const {getAllQuestionBank} =require("../../controller/questionBankController")
-const {getPdfByDeparment} =require("../../controller/bundleController")
+const questionBank =require("../../controller/questionBankController")
+const bundle =require("../../controller/bundleController")
 
 
-router.post("/",getAllQuestionBank)
-router.post("/byDepartment",getPdfByDeparment)
+router.post("/",questionBank.getAllQuestionBank)
+router.post("/byDepartment",bundle.getPdfByDeparment)
 
 
 

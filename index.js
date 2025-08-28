@@ -8,7 +8,7 @@ const indexRouter = require('./routes/indexRoutes')
 
 dbCONNECT()
 app.use(express.json())
-app.use("/api/",indexRouter)
+app.use("/api",indexRouter)
 const port = process.env.PORT || 5000;
 
 
