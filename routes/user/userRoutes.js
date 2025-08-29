@@ -16,11 +16,11 @@ router.get("/",(req,res)=>{
 router.post("/register", registerUser)
 router.post("/login", loginUser);
 router.get("/profile",authenticateUser,getUserProfile);
-router.use("/semester",semesterRoutes)
-router.use("/subject",subjectRoutes)
-router.use("/department",departmentRoutes)
-router.use("/pdf",questionBankRoutes)//!
-router.use("/bundle",bundleRoutes)//!
+router.use("/semester",authenticateUser,semesterRoutes)
+router.use("/subject",authenticateUser,subjectRoutes)
+router.use("/department",authenticateUser,departmentRoutes)
+router.use("/pdf",authenticateUser,questionBankRoutes)//!
+router.use("/bundle",authenticateUser,bundleRoutes)//!
 
 
 

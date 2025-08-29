@@ -16,9 +16,7 @@ const asynchandler = require("express-async-handler")
 
 exports.registerUser = asynchandler(async (req,res)=>{
     const {username,email,password,firstname,lastname,role}=req.body
-    if(!username || !email||!password||!firstname||!lastname ||!role){
-        res.statusCode(400).json("fill all the details")
-    }
+   
     // isExist= await User.findOne({email})
     // if(isExist){
     //     res.status(400).json("user already exists")
@@ -53,6 +51,7 @@ exports.loginUser = asynchandler(async (req,res)=>{
         const {email,password}=req.body
         if(!email || !password){
             res.status(400).json("fill all the deatils")
+            
         }
         const userEmailMatched = await User.findOne({email})
         if(!userEmailMatched){

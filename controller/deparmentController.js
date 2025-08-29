@@ -9,7 +9,7 @@ exports.createDepartment= asynchandler(async (req,res)=>{
 
 
 })
-exports.getAllDepartment = asynchandler(async()=>{
+exports.getAllDepartment = asynchandler(async(req,res)=>{
     const response = await Department.find()
     if(!response)res.status(400).send("error while fetchind from database")
     res.status(200).json(response)
