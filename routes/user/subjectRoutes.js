@@ -4,7 +4,7 @@ const subject =require("../../controller/subjectController")
 const bundle=require("../../controller/bundleController")
 
 router.get("/",subject.getAllSubject)
-router.get("/byDepartment",bundle.getSubjectByDepartment )
+router.post("/byDepartment",bundle.getSubjectByDepartment )
 
 
 module.exports = router

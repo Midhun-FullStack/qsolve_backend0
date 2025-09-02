@@ -14,7 +14,7 @@ router.use("/department",departmentRoutes)
 router.use("/semester",semesterRoutes)
 router.use("/subject",subjectRoutes)
 router.use("/bundle",bundleRoutes)
-router.use("pdf",questionBankRoutes)
+router.use("/pdf",questionBankRoutes)
 
 
 

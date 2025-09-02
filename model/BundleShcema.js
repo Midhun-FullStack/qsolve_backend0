@@ -3,7 +3,7 @@ const BundleSchema = new mongoose.Schema({
     title:{
         type:String
     },
-    DepartmentID:{
+    departmentID:{
 
         type:mongoose.Schema.Types.ObjectId,
         ref:"Department",

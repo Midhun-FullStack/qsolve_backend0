@@ -3,12 +3,12 @@ const bundleSchema = require("../model/BundleShcema")
 const asynchandler = require("express-async-handler")
 
 exports.createBundle = asynchandler(async (req,res)=>{
-    const {department,price,products}=req.body
+    const {departmentID,price,products}=req.body
     // needs to set validatio
-    const bundleCreated = await bundleSchema.create(department,price,products)
+    const bundleCreated = await bundleSchema.create({departmentID,price, products})
         
  
-    bundleCreated.status(200).send("bundleCreated")
+    res.status(200).send("bundleCreated")
 
 
 
@@ -19,24 +19,25 @@ exports.getAllBundle = asynchandler(async (req,res)=>{
 })
 
 exports.getBundleByDepartment = asynchandler(async(req,res)=>{
-    const {department}= req.body
-    const responce = await bundleSchema.find(department)
+    const {departmentID}= req.body
+    const responce = await bundleSchema.findOne({departmentID})
+    res.status(200).json(responce)
     
 }) 
 exports.getPdfByDeparment = asynchandler(async(req,res)=>{
-    const {department}=req.body
-    const productListByDepartment = await bundleSchema.findOne({department}).populate("products").products
+    const {departmentID}=req.body
+    const productListByDepartment = await bundleSchema.findOne({departmentID}).populate("products").select('products')
     if(!productListByDepartment)res.status(400).send("error fetching poducts")
         res.status(200).json(productListByDepartment)
 })
 exports.getSubjectByDepartment = asynchandler(async(req,res)=>{
-     const {department}= req.body
-    const bundleSchemaToObject = await bundleSchema.findOne({department}).select("products").populate({
+     const {departmentID}= req.body
+    const bundleSchemaToObject = await bundleSchema.findOne({departmentID}).select("products").populate({
         path:"products",
-        populate:"subject"
+        populate:"subjectID"
         
     })
-    subjects = [...new set(bundleSchemaToObject.product.map(x=>x.subject))]
+    const subjects = [...new Set(bundleSchemaToObject.products.map(x=>x.subjectID))]
     res.status(200).send(subjects)
 }) 
 
