@@ -21,3 +21,8 @@ exports.getAllQuestionBank=asynchandler(async (req,res)=>{
 
     
 })
+exports.getQuestionBankBySubjects= asynchandler(async(req,res)=>{
+    const {subjectID}= req.body
+    const responce = await questionBank.findOne( {subjectID})
+    res.json(responce)
+})

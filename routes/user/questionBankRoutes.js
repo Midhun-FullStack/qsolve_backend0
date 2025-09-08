@@ -6,6 +6,7 @@ const bundle =require("../../controller/bundleController")
 
 router.post("/",questionBank.getAllQuestionBank)
 router.post("/byDepartment",bundle.getPdfByDeparment)
+router.post("/bySubject",questionBank.getQuestionBankBySubjects)
 
 
 
