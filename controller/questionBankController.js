@@ -5,12 +5,12 @@ const asynchandler = require("express-async-handler")
 exports.createQuestionBank=asynchandler(async (req,res)=>{
     
 
-    const {title,description,semesterID,subjectID,fileUrl}=req.body
-    const postCreated = await questionBank.create({title, description,semesterID,subjectID,fileUrl})
-    if(!postCreated)res.status(400).send("error while creating the documents"
-    )
+    const {title,description,semesterID,subjectID}=req.body
+    const postCreated = await questionBank.create({title, description,semesterID,subjectID,fileUrl:req.file.path})
+    if(!postCreated)res.status(400).send("error while creating the documents")
+    console.log(req.file,);
 
-    res.status(200).send("successfully created question bank collection")
+    res.status(200).json(postCreated)
 
 })
 
