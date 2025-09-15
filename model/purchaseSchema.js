@@ -1,15 +1,18 @@
 const mongoose = require("mongoose")
 
 const purchaseSchema = new mongoose.Schema({
-    userID:{
+    userId:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"user"
     },
-    BundleId:{
+    bundleId:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Bundle"
     }
-    ,
+    ,paymentDone: {
+        type: Boolean,
+        default: false
+    }
     
 })
 const purchase = mongoose.model('purchase', purchaseSchema);

@@ -1,20 +1,15 @@
-const stripe = require("../config/stripe");
 
-// Create Payment Intent
-exports.createPaymentIntent = async (req, res) => {
-  try {
-    const { amount, currency } = req.body; // amount in smallest unit (e.g., cents)
-    
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount,
-      currency,
-      payment_method_types: ["card"],
-    });
+const asynchandler = require("express-async-handler")
+const purchase = require("../model/purchaseSchema")
 
-    res.status(200).json({
-      clientSecret: paymentIntent.client_secret,
-    });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+
+exports.confirmPayment=asynchandler(async(req,res)=>{
+  const {payment,bundleId}=req.body
+  if(!payment){
+    res.status(400).json({error:"payment not succesfull"})
   }
-};
+  await purchase.findOneAndUpdate({
+    userId:req.User,bundleId
+  },{paymentDone:true})
+  res.status(200).json({message:"payment confirmed"})
+})
