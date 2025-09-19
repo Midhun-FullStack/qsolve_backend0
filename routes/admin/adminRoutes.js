@@ -1,9 +1,9 @@
 const express = require("express") 
-const departmentRoutes = require("./departmentRoutes")
-const semesterRoutes  =require("./semesterRoutes")
-const subjectRoutes = require("./subjectRoutes")
-const bundleRoutes = require("./bundleRoutes")
-const questionBankRoutes = require("./questionBankRoutes")
+const departmentRoutes = require("../mainRoutes/departmentRoutes")
+const semesterRoutes  =require("../mainRoutes/semesterRoutes")
+const subjectRoutes = require("../mainRoutes/subjectRoutes")
+const bundleRoutes = require("../mainRoutes/bundleRoutes")
+const questionBankRoutes = require("../mainRoutes/questionBankRoutes")
 const router = express.Router()
 
 //for welocme message

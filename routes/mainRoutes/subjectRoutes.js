@@ -7,4 +7,7 @@ router.get("/",subject.getAllSubject)
 router.post("/byDepartment",bundle.getSubjectByDepartment )
 
 
+router.post("/create",subject.createSubject)
+
+
 module.exports = router
