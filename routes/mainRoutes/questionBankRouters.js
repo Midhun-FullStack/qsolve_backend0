@@ -1,4 +1,4 @@
-const express = require("express") 
+const express = require("express")
 router = express.Router()
 const questionBank =require("../../controller/questionBankController")
 const parser = require("../../middleware/multer");
@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
 })
 router.post("/create",parser.single("file"),questionBank.createQuestionBank)
 router.post("/",questionBank.getAllQuestionBank)
-router.post("/byDepartment",bundle.getPdfByDeparment)
+router.post("/byDepartment",questionBank.getPdfByDeparment)
 router.post("/bySubject",questionBank.getQuestionBankBySubjects)
 
 module.exports = router
